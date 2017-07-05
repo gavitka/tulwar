@@ -24,7 +24,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MouseHook.h">
+    <ClInclude Include="HookDll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MouseHook.cpp">
+    <ClCompile Include="HookDll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

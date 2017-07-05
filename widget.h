@@ -5,6 +5,7 @@
 
 class NcFramelessHelper;
 class SettingsWindow;
+class QLabel;
 
 class Widget : public QWidget
 {
@@ -14,11 +15,17 @@ public:
     Widget(QWidget *parent = 0);
     ~Widget();
 
+    void setMousex(int value);
+    void setMousey(int value);
+
 private slots:
     void openSettings();
 private:
     NcFramelessHelper *mFh;
     SettingsWindow *settingsWindow;
+
+    QLabel *lab1;
+    QLabel *lab2;
 };
 
 #endif // WIDGET_H

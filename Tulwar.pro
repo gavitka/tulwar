@@ -6,10 +6,14 @@
 
 QT       += core gui widgets
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+CONFIG += c++11
 
 TARGET = Tulwar
 TEMPLATE = app
+
+INCLUDEPATH += include
+LIBS += -Llib -lHookDll
+LIBS += -lUser32
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
@@ -25,9 +29,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         widget.cpp \
-    NcFramelessHelper.cpp \
-    settingswindow.cpp
+    settingswindow.cpp \
+    NcFramelessHelper/NcFramelessHelper.cpp \
+    kheventfilter.cpp
 
 HEADERS  += widget.h \
-    NcFramelessHelper.h \
-    settingswindow.h
+    settingswindow.h \
+    NcFramelessHelper/NcFramelessHelper.h \
+    kheventfilter.h
+
+# QMAKE_PRE_LINK += $$quote(copy /y HookDll\Release\HookDll.dll Debug & )
+# QMAKE_PRE_LINK += $$quote(copy /y HookDll\Release\HookDll.dll Release & )
+# QMAKE_PRE_LINK += $$quote(copy /y HookDll\HookDll\HookDll.h include & )
+# QMAKE_PRE_LINK += $$quote(copy /y HookDll\HookDll\stdafx.h include & )
+# QMAKE_PRE_LINK += $$quote(copy /y HookDll\HookDll\targetver.h include & )
+# QMAKE_PRE_LINK += $$quote(copy /y HookDll\Release\HookDll.lib lib )
