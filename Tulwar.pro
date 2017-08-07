@@ -4,11 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT       += core gui widgets winextras
 
 CONFIG += c++11
 
-TARGET = Tulwar
+TARGET = tulwar
 TEMPLATE = app
 
 INCLUDEPATH += include
@@ -26,17 +26,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+win32:RC_ICONS += installer/logo.ico
 
 SOURCES += main.cpp\
         widget.cpp \
     settingswindow.cpp \
     NcFramelessHelper/NcFramelessHelper.cpp \
-    kheventfilter.cpp
+    kheventfilter.cpp \
+    toolbar.cpp
 
 HEADERS  += widget.h \
     settingswindow.h \
     NcFramelessHelper/NcFramelessHelper.h \
-    kheventfilter.h
+    kheventfilter.h \
+    toolbar.h
 
 # QMAKE_PRE_LINK += $$quote(copy /y HookDll\Release\HookDll.dll Debug & )
 # QMAKE_PRE_LINK += $$quote(copy /y HookDll\Release\HookDll.dll Release & )

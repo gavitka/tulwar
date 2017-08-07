@@ -37,6 +37,7 @@ public:
         }
         return false;
     }
+
 private:
     Widget* m_widget;
 };
