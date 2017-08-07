@@ -1,0 +1,40 @@
+#include "toolbar.h"
+
+#include "windows.h"
+
+#include "QGridLayout"
+#include "QPushButton"
+
+Toolbar::Toolbar(QWidget *parent) : QWidget(parent)
+{
+    QGridLayout *grid1 = new QGridLayout(parent);
+
+    QPushButton *button1 = new QPushButton("Button 1",parent);
+    connect(button1,SIGNAL(pressed()),this,SLOT(button1_press()));
+    connect(button1,SIGNAL(released()),this,SLOT(button1_release()));
+    QPushButton *button2 = new QPushButton("Button 2",parent);
+    QPushButton *button3 = new QPushButton("Button 3",parent);
+    QPushButton *button4 = new QPushButton("Button 4",parent);
+
+    grid1->addWidget(button1,0,0);
+    grid1->addWidget(button2,0,1);
+    grid1->addWidget(button3,1,0);
+    grid1->addWidget(button4,1,1);
+
+    setLayout(grid1);
+}
+
+void Toolbar::button1_press()
+{
+    SendMessage(HWND_BROADCAST,
+                WM_MOUSEMOVE,
+                (WPARAM)0,
+                MAKELPARAM(0,0));
+    qDebug() << "sent message";
+}
+
+void Toolbar::button1_release()
+{
+
+}
+
